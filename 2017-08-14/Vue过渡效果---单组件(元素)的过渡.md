@@ -180,3 +180,13 @@ Vue在插入、更新或者移除DOM时，提供多种不同的应用过渡效�
             <button v-else key="edit">Edit</button>
         </transition>
     ```
+- 过渡模式
+    - 问题：
+        - 在`transition`组件中，有一个默认行为是`enter`和`leave`状态是同时开始进入过渡的。那么就有可能造成DOM结构的崩溃
+    - 解决方案：过渡模式（制定新元素与当前元素进入过渡状态的顺序）
+        - 1.`in-out`：新元素先进行过渡，完成后当前元素过渡离开；
+        - 2.`out-in`：当前元素先进行过渡，完成后新元素进入；
+        ```
+        用法
+        <transition name="fade" mode="out-in"></transition>
+        ```
